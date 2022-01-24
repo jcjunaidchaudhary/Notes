@@ -1,0 +1,103 @@
+Object-Oriented Programming in Python
+History:
+The term “Object-Oriented Programming” (OOP) was coined by Alan Kay around 1966 while he was at grad school.
+ The language called Simula was the first programming language with the features of Object-oriented programming.
+
+Table of Content
+What Is Object-Oriented Programming?
+Object-Oriented Programming (OOP) vs Procedure Oriented Programming (POP)
+Major Concepts of OOPs-
+What is a class?
+Object and object instantiation
+Class methods
+Inheritance in Python Class
+Encapsulation
+Polymorphism
+Data abstraction
+
+
+What Is Object-Oriented Programming?
+Object:
+An object is a group of interrelated variables and functions.
+ These variables are often referred to as properties of the object and functions are referred to as the behavior of the objects.
+ These objects provide a better and clear structure for the program.
+
+Major Python OOPs concept-
+In this section, we will deep dive into the basic concepts of OOP. We will cover the following topics-
+
+Class
+Object
+Method
+Inheritance
+Encapsulation
+Polymorphism
+Data Abstraction
+1. What is a Class?
+A straight forward answer to this question is- A class is a collection of objects.  Unlike the primitive data structures,
+ classes are data structures that the user defines. They make the code more manageable.
+
+
+4. Inheritance in Python Class
+Inheritance is the procedure in which one class inherits the attributes and methods of another class.  The class whose properties and methods are inherited is known as Parent class.
+ And the class that inherits the properties from the parent class is the Child class.
+
+Encapsulation
+Encapsulation, as I mentioned in the initial part of the article, is a way to ensure security. Basically, it hides the data from the access of outsiders. Such as if an organization wants to protect an object/information from unwanted access by clients or any unauthorized person then encapsulation is the way to ensure this.
+
+You can declare the methods or the attributes protected by using a single underscore ( _ ) before their names. Such as- self._name or def _method( ); Both of these lines tell that the attribute and method are protected and should not be used outside the access of the class and sub-classes but can be accessed by class methods and objects.
+class Car:
+
+    def __init__(self, name, mileage):
+        self.__name = name              #private variable        
+        self.mileage = mileage 
+
+    def description(self):                
+        return f"The {self.__name} car gives the mileage of {self.mileage}km/l"
+obj = Car("BMW 7-series",39.53)
+
+#accessing private variable via class method 
+print(obj.description())
+
+#accessing private variable directly from outside
+print(obj.mileage)
+print(obj.__name)
+
+
+Polymorphism
+This is a Greek word. If we break the term Polymorphism, we get “poly”-many and “morph”-forms. So Polymorphism means having many forms. In OOP it refers to the functions having the same names but carrying different functionalities.
+
+class Audi:
+  def description(self):
+    print("This the description function of class AUDI.")
+
+class BMW:
+  def description(self):
+    print("This the description function of class BMW.")
+audi = Audi()
+bmw = BMW()
+for car in (audi,bmw):
+ car.description()
+
+
+ Data abstraction
+We use Abstraction for hiding the internal details or implementations of a function and showing its functionalities only. 
+This is similar to the way you know how to drive a car without knowing the background mechanism. Or you know how to turn on or off a light using a switch but you don’t know what is happening behind the socket.
+from abc import ABC, abstractmethod
+
+class Car(ABC):
+    def __init__(self,name):
+        self.name = name
+
+    def description(self):
+        print("This the description function of class car.")
+
+    @abstractmethod
+    def price(self,x):
+        pass
+class new(Car):
+    def price(self,x):
+        print(f"The {self.name}'s price is {x} lakhs.")
+obj = new("Honda City")
+
+obj.description()
+obj.price(25)

@@ -1,0 +1,43 @@
+##SQLAlchemy with mysql 
+import SQLALCHEMY 
+app.confiq['SQLALCHEMY_DATABASE_URI']='mysql://root:<password>@localhost/<databse>'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+to create SQLAlchemy object:
+db=SQLAlchemy(app)
+
+now create table model:
+class Database(db.Model):
+	sno=db.Column(db.Integer, primary_key=True)
+    title=db.Column(db.String(200), nullable=False)
+    desc=db.Column(db.String(500), nullable=False)
+    date=db.Column(db.DateTime, default=datetime.utcnow)
+
+    def __repr__(self) -> str:
+        return f"{self.sno} - {self.title}"   OR
+    Create Constructer
+
+
+how to creat table in terminal
+write python in terminal 
+>>>from app import db
+>>>db.create_all()
+>>>exit()  
+
+>>
+if we want only one column data:
+
+dbRollno= Students.query.with_entities(Students.rollno).all()
+dbName= Students.query.with_entities(Students.name).all()
+dbStd= Students.query.with_entities(Students.std).all()
+dbCourse= Students.query.with_entities(Students.course).all()
+
+>>
+filter by element
+col = Students.query.filter_by(rollno=33).first()
+print(col.name)
+
+>>>
+if we want by id
+user = User.query.filter_by(public_id=public_id).first()
+user = User.query.get(id)

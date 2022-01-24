@@ -1,0 +1,8 @@
+first we have to insall 
+->pip install virtualenv
+
+then name your envirinmemnt
+-->virtuallenv <name of env>
+
+now we have to activate our envirinment
+-->.\env\Scripts\activate.ps1 for power shell

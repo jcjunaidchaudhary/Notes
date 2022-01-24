@@ -1,0 +1,68 @@
+
+
+AM COMPUTER@jc-junaid-chaudhary MINGW64 /d/jc_junaid_chaudhary/Projects (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../.vscode/
+        ../Radiance Academy/
+
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+AM COMPUTER@jc-junaid-chaudhary MINGW64 /d/jc_junaid_chaudhary/Projects (master)
+$ git add Radiance Academy
+fatal: pathspec 'Radiance' did not match any files
+
+AM COMPUTER@jc-junaid-chaudhary MINGW64 /d/jc_junaid_chaudhary/Projects (master)
+$ git add Radiance\ Academy/
+
+AM COMPUTER@jc-junaid-chaudhary MINGW64 /d/jc_junaid_chaudhary/Projects (master)
+$ git commit -m " Initial Commit"
+[master 1ffdaef]  Initial Commit
+ 33 files changed, 4179 insertions(+)
+ create mode 100644 Projects/Radiance Academy/.vscode/settings.json
+ create mode 100644 Projects/Radiance Academy/Course.html
+
+AM COMPUTER@jc-junaid-chaudhary MINGW64 /d/jc_junaid_chaudhary/Projects (master)
+$ git remote add origin https://github.com/jcjunaidchaudhary/Radiance-Academy.git
+error: remote origin already exists.
+
+AM COMPUTER@jc-junaid-chaudhary MINGW64 /d/jc_junaid_chaudhary/Projects (master)
+$ git remote -v
+origin  https://github.com/jcjunaidchaudhary/TeamTrioProject.git (fetch)
+origin  https://github.com/jcjunaidchaudhary/TeamTrioProject.git (push)
+
+AM COMPUTER@jc-junaid-chaudhary MINGW64 /d/jc_junaid_chaudhary/Projects (master)
+$ git remove origin
+git: 'remove' is not a git command. See 'git --help'.
+
+The most similar command is
+        remote
+
+AM COMPUTER@jc-junaid-chaudhary MINGW64 /d/jc_junaid_chaudhary/Projects (master)
+$ git remote set-url origin https://github.com/jcjunaidchaudhary/Radiance-Academy.git
+
+AM COMPUTER@jc-junaid-chaudhary MINGW64 /d/jc_junaid_chaudhary/Projects (master)
+$ git remote -v
+origin  https://github.com/jcjunaidchaudhary/Radiance-Academy.git (fetch)
+origin  https://github.com/jcjunaidchaudhary/Radiance-Academy.git (push)
+
+AM COMPUTER@jc-junaid-chaudhary MINGW64 /d/jc_junaid_chaudhary/Projects (master)
+$ git push -u origin master
+Enumerating objects: 204, done.
+Counting objects: 100% (204/204), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (184/184), done.
+Writing objects: 100% (204/204), 2.39 MiB | 1.83 MiB/s, done.
+Total 204 (delta 41), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (41/41), done.
+To https://github.com/jcjunaidchaudhary/Radiance-Academy.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+AM COMPUTER@jc-junaid-chaudhary MINGW64 /d/jc_junaid_chaudhary/Projects (master)
+$

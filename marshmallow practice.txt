@@ -1,0 +1,36 @@
+---marshmallow
+
+>>>
+from flask_marshmallow import Marshmallow
+
+ma = Marshmallow(app)
+
+class PostSchema(ma.Schema):
+    class Meta:
+        fields = ("name","rollno", "std", "course")
+ 
+post_schema = PostSchema()
+posts_schema = PostSchema(many=True)
+
+>>>
+@app.route("/get", methods=["GET"])
+def get_post():
+    details=Students.query.all()
+    result=posts_schema.dump(details) 
+    return jsonify(result)
+it will give all data in form of jason
+
+>>>
+# all_posts=Students.query.all()
+# result=posts_schema.dump(all_posts)
+# print(result)
+
+# col = Students.query.filter_by(rollno=31).first()
+# result=post_schema.dump(col)
+# print(result['name'])
+# print(result)
+
+# dbRollno= Students.query.with_entities(Students.rollno).all()
+# result1=posts_schema.dump(dbRollno)
+# print(result1) ----****----
+

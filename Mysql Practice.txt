@@ -1,0 +1,59 @@
+
+mysql> use school
+Database changed
+mysql> desc school
+    -> desc school;
+mysql> show tables;
++------------------+
+| Tables_in_school |
++------------------+
+| schooltb         |
++------------------+
+1 row in set (0.01 sec)
+
+mysql> desc schooltb;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int          | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(20)  | YES  |     | NULL    |                |
+| class      | varchar(5)   | YES  |     | NULL    |                |
+| percentage | decimal(5,4) | YES  |     | NULL    |                |
+| contact    | varchar(10)  | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.01 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_school |
++------------------+
+| exceltable       |
+| schooltb         |
+| students         |
++------------------+
+3 rows in set (0.00 sec)
+
+mysql> select* from schooltb;
+Empty set (0.02 sec)
+
+mysql> select* from schooltb;
+Empty set (0.00 sec)
+
+
+mysql> select* from schooltb;
++----+-------+---------+-------+------------+-----------+
+| id | name  | Roll_no | class | percentage | contact   |
++----+-------+---------+-------+------------+-----------+
+|  1 | Juned |      23 | X     |         88 | 987654321 |
+|  2 | Abdul |      22 | VI    |         77 | 654321789 |
+|  3 | Umar  |      12 | IX    |         90 | 979234567 |
+|  4 | Asif  |      17 | XII   |         44 | 656776988 |
++----+-------+---------+-------+------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from students where name='Juned';
++----+-------+--------+------+---------+
+| id | name  | rollno | std  | course  |
++----+-------+--------+------+---------+
+|  6 | Juned |     16 | III  | Primary |
++----+-------+--------+------+---------+
