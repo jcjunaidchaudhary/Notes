@@ -1,0 +1,85 @@
+Django
+
+1.for start project:
+>>djang-admin startproject <name>
+>>python manage.py makemigration
+>>python manage.py migrate
+ 
+2.for more:
+>>python manage.py
+
+3.for create app:
+>>python manage.py startapp home
+now register the app
+	a>copy class name from app.py and enter into Setting.py
+	eg.
+	INSTALLED_APPS = [
+    		'home.apps.HomeConfig',
+		...]
+
+4.make urls.py in app and copy all item from project/urls.py
+
+5.add path('', include('app.urls')) on project/urls.py
+
+6.in app/urls.py import views and add your path.
+eg.path("",views.index, name="home"),
+    path("about",views.about, name="about")
+
+7.now create method in view.py
+eg.def about(request):
+    	return render(request, 'about.html')
+    	or
+	return Httpresponse("anything") 	
+8. make templates,media and static folder outside project 
+9. add static path in setting.py 
+# static addition
+STATICFILES_DIRS = [
+    BASE_DIR, "static"]
+
+
+10. add templteas path in templates of Setting.py
+'DIRS': [BASE_DIR, "templates"],
+
+11.a>add media path in setting.py
+	#managing media
+	MEDIA_ROOT =os.path.join(BASE_DIR,"media")
+	MEDIA_URL='/media/'
+   b>add media url in project/urls.py
+	urlpatterns = [
+    		path('admin/', admin.site.urls),
+    		path('', include('home.urls'))
+	]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  
+ 
+12.Make database table in Model.py
+ eg.
+
+# Create your models here.
+class Contact(models.Model):
+    name=models.CharField(max_length=122)
+    email=models.EmailField(max_length=254)
+    phone=models.CharField(max_length=12)
+    query=models.CharField(max_length=7)
+    descself=models.TextField()
+    desc=models.TextField()
+    teacher=models.BooleanField(default=False)
+    student=models.BooleanField(default=False)
+    date=models.DateField()
+    
+    def __str__(self):
+        return self.name
+
+13.register models in admin.py for seeing in admin page
+from home.models import Contact, Gallery
+# Register your models here.
+admin.site.register(Contact)
+admin.site.register(Gallery)
+
+14.media model
+class Pdf(models.Model):
+    pdf_id = models.AutoField
+    title=models.CharField(max_length=30)
+    pdf=models.FileField(upload_to="Question peper/pdf",default="")
+    date=models.DateField()
+    
+    def __str__(self):
+        return self.title
