@@ -1,4 +1,5 @@
-Django
+
+[Django
 
 1.for start project:
 >>djang-admin startproject <name>
